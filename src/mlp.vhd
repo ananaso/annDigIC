@@ -27,7 +27,20 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use IEEE.NUMERIC_STD.ALL;
 
 entity mlp is
---  Port ( );
+generic (
+    N : integer := 9;
+    H : integer := 20;
+    M : integer := 1;
+    littleM : integer := 4;
+    littleN : integer := 4
+);
+port (
+    SI : in std_logic;
+    SE : in std_logic;
+    clk : in std_logic;
+    u : in std_logic_vector(N * (littleM + littleN + 1) downto 0);
+    yhat : out std_logic_vector(M * (littleM + littleN + 1) downto 0)
+);
 end mlp;
 
 architecture Behavioral of mlp is
