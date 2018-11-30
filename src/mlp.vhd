@@ -153,53 +153,30 @@ end process multTransposeHM;
 ------------------------ WEIGHT ARRAY CONSTRUCTION ------------------------
 ---------------------------------------------------------------------------
 
--- Read bit in from SerialIn to reconstruct fixed-point number
-readW:process(SI)
-begin
-    nextWByte <= SI & wByte(littleM - 1 downto littleN);
-end process;
-
--- parallel-out each fully-constructed number
-storeCU:process(wByte, readCnt)
-begin
-    if readCnt rem wWidth = 0 then
-        storeByte <= wByte;
-        storeCnt <= readCnt mod wWidth;
-    end if;
-end process storeCU;
-
--- calculate the index of the weight array for the next number
-arrayIndex:process(storeCnt)
-begin
-    storeWidth <= storeCnt rem wArrayWidth;
-    storeDepth <= storeCnt mod wArrayDepth;
-end process arrayIndex;
-
--- Store reconstructed byte into the weight array
-storeW:process(storeByte)
-begin
-    wArray(storeWidth)(storeDepth) <= storeByte;
-end process storeW;
-
--- Count number of bits read in; updates each clock cycle
-counter:process(readCnt)
-begin
-    nextReadCnt <= readCnt + 1;
-end process;
-
 -- Synchronize all variables on the clock rising edge
 update:process(clk)
 begin
     if clk'event and clk = '1' then
         if SE = '1' then
-            wByte <= nextWByte;
-            readCnt <= nextReadCnt;
+            wByte <= SI & wByte(littleM - 1 downto littleN);
+            readCnt <= readCnt + 1;
         else
             wByte <= wByte;
             readCnt <= readCnt;
         end if;
     end if;
 end process update;
+
+-- update storeByte and storeCnt whenever 9 bits are read
+storeByte <= wByte when readCnt rem wWidth = 0 else storeByte;
+storeCnt <= readCnt mod wWidth when readCnt rem wWidth = 0 else storeCnt;
+
+-- calculate the index of the weight array for the next number
+storeWidth <= storeCnt rem wArrayWidth;
+storeDepth <= storeCnt mod wArrayDepth;
+
+-- Store reconstructed byte into the weight array
+wArray(storeWidth)(storeDepth) <= storeByte;
 
 ---------------------------------------------------------------------------
 --------------------------- OUTPUT CALCULATION ----------------------------
