@@ -12,7 +12,6 @@ entity NNode is
 port (
     clk     : in std_logic;
     u       : in std_logic_vector(7 downto 0);
-    W       : in hQArray;
     n_out    : out hQArray
 );
 end NNode;
@@ -30,10 +29,10 @@ begin
     end if;
 end process scale;
 
-mult:process(scaledU, W)
+mult:process(scaledU)
 begin
     for x in 0 to hQArray'length - 1 loop
-        n_out(x) <= scaledU * W(x);
+        n_out(x) <= scaledU;
     end loop;
 end process mult;
 

@@ -12,7 +12,6 @@ entity HNode is
 port (
     clk     : in std_logic;
     h_in    : in nQArray;
-    W       : in mQArray;
     h_out   : out mQArray
 );
 end HNode;
@@ -49,7 +48,7 @@ end process relu;
 output:process(reluVal)
 begin
     for x in mQArray'reverse_range loop
-        h_out(x) <= reluVal * W(x);
+        h_out(x) <= reluVal;
     end loop;
 end process output;
 
