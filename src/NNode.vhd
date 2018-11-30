@@ -1,12 +1,20 @@
+----------------------------------------------
+-- Class: Digital IC Design
+-- School: Rochester Institute of Technology
+-- Engineers: Alden Davidson, John Judge
+-- 
+-- Final Project, Fall 2018
+-- Artificial Neural Network
+-- Module Name: NNode - behavioral
+--
+-- Description: Input layer node
+----------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
 library ieee_proposed;
 use ieee_proposed.fixed_pkg.all;
 use work.annGenericArrays_pkg.all;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
-use IEEE.NUMERIC_STD.ALL;
 
 entity NNode is
 port (
@@ -16,7 +24,7 @@ port (
 );
 end NNode;
 
-architecture Behavioral of NNode is
+architecture behavioral of NNode is
 
 signal scaledU : sfixed(littleM downto littleN);
 
@@ -36,4 +44,4 @@ begin
     end loop;
 end process mult;
 
-end Behavioral;
+end behavioral;

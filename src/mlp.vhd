@@ -1,31 +1,18 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+----------------------------------------------
+-- Class: Digital IC Design
+-- School: Rochester Institute of Technology
+-- Engineers: Alden Davidson, John Judge
 -- 
--- Create Date: 11/18/2018 04:08:57 PM
--- Design Name: 
--- Module Name: mlp - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
+-- Final Project, Fall 2018
+-- Artificial Neural Network
+-- Module Name: mlp - mixed
+----------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
 library ieee_proposed;
 use ieee_proposed.fixed_pkg.all;
 use work.annGenericArrays_pkg.all;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
-use IEEE.NUMERIC_STD.ALL;
 
 entity mlp is
 port (
@@ -37,8 +24,9 @@ port (
 );
 end mlp;
 
-architecture Behavioral of mlp is
+architecture mixed of mlp is
 
+-- node for input layer
 component NNode
 port (
     clk     : in std_logic;
@@ -47,22 +35,27 @@ port (
 );
 end component;
 
+-- node for hidden layer
 component HNode
 port (
     clk     : in std_logic;
     h_in    : in nQArray;
+    bias    : in sfixed(littleM downto littleN);
     h_out   : out mQArray
 );
 end component;
 
+-- node for output layer
 component MNode
 port (
     clk     : in std_logic;
     m_in    : in hQArray;
+    bias    : in sfixed(littleM downto littleN);
     m_out   : out std_logic
 );
 end component;
 
+-- constants for width of weights and their array
 constant wWidth : integer := littleM + littleN + 1;
 constant wArrayWidth : integer := N + H + M + 1;
 constant wArrayDepth : integer := N + H + M + 1;
@@ -76,7 +69,7 @@ signal wArray : t_wArray;
 -- handles weighting of values when passing between layers
 type t_nhArray is array (0 to N - 1) of hQArray;
 type t_wnhArray is array (0 to H - 1) of nQArray;
-type t_hmArray is array (0 to H - 1) of hQArray;
+type t_hmArray is array (0 to H - 1) of mQArray;
 type t_whmArray is array (0 to M - 1) of hQArray;
 signal nhArray : t_nhArray;
 signal hmArray : t_hmArray;
@@ -91,21 +84,27 @@ signal storeCnt, storeWidth, storeDepth : integer := 0;
 begin
 
 -- N/Input Layer
-gen_nlayer: for i in 0 to N - 1 generate
-    nlayer : NNode
-    port map (
+gen_nlayer : for i in 0 to N - 1 generate
+    nlayer : NNode port map (
         clk => clk,
-        u((N - i) * (littleM + littleN) - 1 downto (N - i) * (littleM + littleN)) => u((N - i) * (littleM + littleN) - 1 downto (N - i) * (littleM + littleN)),
+        u => u((N - i) * 8 - 1 downto (N - i) * 8),
         n_out => nhArray(i)
     );
 end generate gen_nlayer;
 
 -- H/Hidden Layer
---TODO
---TODO
---TODO
+gen_hlayer : for i in 0 to H - 1 generate
+    hlayer : HNode port map (
+        clk => clk,
+        h_in => wnhArray(i),
+        bias => wArray(0)(N + i),
+        h_out => hmArray(i)
+    );
+end generate gen_hlayer;
 
 -- Multiply all outputs of N layer and transpose for input to H layer
+-- Transposition: N-Layer outputs N H-sized Arrays
+--                H-Layer inputs H N-sized Arrays
 multTransposeNH:process(nhArray)
 begin
     for x in nhArray'range loop
@@ -116,6 +115,8 @@ begin
 end process multTransposeNH;
 
 -- Multiply all outputs of H layer and transpose for input to M layer
+-- Transposition: H-Layer outputs H M-sized Arrays
+--                M-Layer inputs M H-sized Arrays
 multTransposeHM:process(hmArray)
 begin
     for x in hmArray'range loop
@@ -168,4 +169,4 @@ begin
     end if;
 end process update;
 
-end Behavioral;
+end mixed;

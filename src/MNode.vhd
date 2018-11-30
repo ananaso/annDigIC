@@ -1,22 +1,30 @@
+----------------------------------------------
+-- Class: Digital IC Design
+-- School: Rochester Institute of Technology
+-- Engineers: Alden Davidson, John Judge
+-- 
+-- Final Project, Fall 2018
+-- Artificial Neural Network
+-- Module Name: MNode - behavioral
+--
+-- Description: Output layer node
+----------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library ieee_proposed;
 use ieee_proposed.fixed_pkg.all;
 use work.annGenericArrays_pkg.all;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
 entity MNode is
 port (
     clk     : in std_logic;
     m_in    : in hQArray;
+    bias    : in sfixed(littleM downto littleN);
     m_out   : out std_logic
 );
 end MNode;
 
-architecture Behavioral of MNode is
+architecture behavioral of MNode is
 
 signal inputSum : sfixed(littleM downto littleN) := to_sfixed(0, littleM, littleN);
 signal reluVal : sfixed(littleM downto littleN);
@@ -26,6 +34,7 @@ begin
 sum:process(m_in)
 variable temp : sfixed(littleM downto littleN) := to_sfixed(0, littleM, littleN);
 begin
+    temp := bias;
     for val in m_in'reverse_range loop
         temp := resize(temp + m_in(val), inputSum);
     end loop;
@@ -54,4 +63,4 @@ begin
     end if;
 end process output;
 
-end Behavioral;
+end behavioral;
