@@ -16,11 +16,11 @@ use work.annGenericArrays_pkg.all;
 
 entity mlp is
 port (
-    SI : in std_logic;
-    SE : in std_logic;
-    clk : in std_logic;
-    u : in std_logic_vector(N * 8 - 1 downto 0);
-    yhat : out std_logic_vector(M * 8 - 1 downto 0)
+    SI      : in std_logic;
+    SE      : in std_logic;
+    clk     : in std_logic;
+    u       : in std_logic_vector(N * 8 - 1 downto 0);
+    yhat    : out std_logic_vector(M * 8 - 1 downto 0)
 );
 end mlp;
 
@@ -31,7 +31,7 @@ component NNode
 port (
     clk     : in std_logic;
     u       : in std_logic_vector(7 downto 0);
-    n_out    : out hQArray
+    n_out   : out hQArray
 );
 end component;
 
@@ -71,23 +71,32 @@ type t_nhArray is array (0 to N - 1) of hQArray;
 type t_wnhArray is array (0 to H - 1) of nQArray;
 type t_hmArray is array (0 to H - 1) of mQArray;
 type t_whmArray is array (0 to M - 1) of hQArray;
+type t_mOutArray is array (0 to M - 1) of std_logic;
 signal nhArray : t_nhArray;
-signal hmArray : t_hmArray;
 signal wnhArray : t_wnhArray;
+signal hmArray : t_hmArray;
 signal whmArray : t_whmArray;
+signal mOutArray : t_mOutArray;
 
 -- signals for storing bytes into the weights array
 signal wByte, nextWByte, storeByte : sfixed(littleM downto littleN);
 signal readCnt, nextReadCnt : integer := 1;
 signal storeCnt, storeWidth, storeDepth : integer := 0;
 
+-- pixel edge status
+signal isEdge : std_logic;
+
 begin
+
+---------------------------------------------------------------------------
+---------------------------- LAYER GENERATION -----------------------------
+---------------------------------------------------------------------------
 
 -- N/Input Layer
 gen_nlayer : for i in 0 to N - 1 generate
     nlayer : NNode port map (
         clk => clk,
-        u => u((N - i) * 8 - 1 downto (N - i) * 8),
+        u => u((N - i) * 8 - 1 downto (N - i) * 8 - 8),
         n_out => nhArray(i)
     );
 end generate gen_nlayer;
@@ -101,6 +110,20 @@ gen_hlayer : for i in 0 to H - 1 generate
         h_out => hmArray(i)
     );
 end generate gen_hlayer;
+
+-- M/Output Layer
+gen_mlayer : for i in 0 to M - 1 generate
+    mlayer : MNode port map (
+        clk => clk,
+        m_in => whmArray(i),
+        bias => wArray(0)(N + H + i),
+        m_out => mOutArray(i)
+    );
+end generate gen_mlayer;
+
+---------------------------------------------------------------------------
+---------------------- LAYER INPUT/OUTPUT ALIGNMENT -----------------------
+---------------------------------------------------------------------------
 
 -- Multiply all outputs of N layer and transpose for input to H layer
 -- Transposition: N-Layer outputs N H-sized Arrays
@@ -125,6 +148,10 @@ begin
         end loop; 
     end loop;
 end process multTransposeHM;
+
+---------------------------------------------------------------------------
+------------------------ WEIGHT ARRAY CONSTRUCTION ------------------------
+---------------------------------------------------------------------------
 
 -- Read bit in from SerialIn to reconstruct fixed-point number
 readW:process(SI)
@@ -164,9 +191,29 @@ end process;
 update:process(clk)
 begin
     if clk'event and clk = '1' then
-        wByte <= nextWByte;
-        readCnt <= nextReadCnt;
+        if SE = '1' then
+            wByte <= nextWByte;
+            readCnt <= nextReadCnt;
+        else
+            wByte <= wByte;
+            readCnt <= readCnt;
+        end if;
     end if;
 end process update;
+
+---------------------------------------------------------------------------
+--------------------------- OUTPUT CALCULATION ----------------------------
+---------------------------------------------------------------------------
+
+scaleOuts:process(mOutArray)
+begin
+    for x in mOutArray'range loop
+        if mOutArray(x) = '1' then
+            yhat(x * 8 + 7 downto x * 8) <= X"FF";    -- 255, 0b11111111
+        else
+            yhat(x * 8 + 7 downto x * 8) <= X"00";    -- 0, 0b00000000
+        end if;
+    end loop;
+end process scaleOuts;
 
 end mixed;
