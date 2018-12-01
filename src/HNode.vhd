@@ -31,12 +31,12 @@ signal reluVal : sfixed(littleM downto littleN);
 
 begin
 
-sum:process(h_in)
+sum:process(h_in, bias)
 variable temp : sfixed(littleM downto littleN) := to_sfixed(0, littleM, littleN);
 begin
     temp := bias;
     for val in nQArray'reverse_range loop
-        temp := resize(temp + h_in(val), inputSum);
+        temp := resize(temp + h_in(val), temp);
     end loop;
     inputSum <= temp;
 end process sum;
@@ -44,12 +44,12 @@ end process sum;
 relu:process(clk)
 begin
     if clk'event and clk = '1' then
-        if inputSum <= 0 then
+        if inputSum <= to_sfixed(0, inputSum) then
             reluVal <= to_sfixed(0, reluVal);
-        elsif inputSum >= 1 then
+        elsif inputSum >= to_sfixed(1, inputSum) then
             reluVal <= to_sfixed(1, reluVal);
         else
-            reluVal <= inputSum;
+            reluVal <= resize(inputSum, reluVal);
         end if;
     end if;
 end process relu;

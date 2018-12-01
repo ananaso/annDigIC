@@ -31,12 +31,12 @@ signal reluVal : sfixed(littleM downto littleN);
 
 begin
 
-sum:process(m_in)
+sum:process(m_in, bias)
 variable temp : sfixed(littleM downto littleN) := to_sfixed(0, littleM, littleN);
 begin
     temp := bias;
     for val in m_in'reverse_range loop
-        temp := resize(temp + m_in(val), inputSum);
+        temp := resize(temp + m_in(val), temp);
     end loop;
     inputSum <= temp;
 end process sum;
@@ -44,19 +44,19 @@ end process sum;
 relu:process(clk)
 begin
     if clk'event and clk = '1' then
-        if inputSum <= 0 then
+        if inputSum <= to_sfixed(0, inputSum) then
             reluVal <= to_sfixed(0, reluVal);
-        elsif inputSum >= 1 then
+        elsif inputSum >= to_sfixed(1, inputSum) then
             reluVal <= to_sfixed(1, reluVal);
         else
-            reluVal <= inputSum;
+            reluVal <= resize(inputSum, reluVal);
         end if;
     end if;
 end process relu;
 
 output:process(reluVal)
 begin
-    if reluVal < 0.5 then
+    if reluVal < to_sfixed(0.5, reluVal) then
         m_out <= '0';
     else
         m_out <= '1';

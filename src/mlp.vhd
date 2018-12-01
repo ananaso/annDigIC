@@ -79,12 +79,12 @@ signal whmArray : t_whmArray;
 signal mOutArray : t_mOutArray;
 
 -- signals for storing bytes into the weights array
-signal wByte, nextWByte, storeByte : sfixed(littleM downto littleN);
-signal readCnt, nextReadCnt : integer := 1;
-signal storeCnt, storeWidth, storeDepth : integer := 0;
-
--- pixel edge status
-signal isEdge : std_logic;
+signal wByte, nextWByte : sfixed(littleM downto littleN);
+signal storeByte, nextStoreByte : sfixed(littleM downto littleN);
+signal readCnt, nextReadCnt : unsigned(2 downto 0) := (others => '0');
+signal storeCnt, nextStoreCnt : integer := 0;
+signal storeWidth, nextStoreWidth, storeDepth, nextStoreDepth : integer := 0;
+signal arrayByte : sfixed(littleM downto littleN);
 
 begin
 
@@ -106,7 +106,7 @@ gen_hlayer : for i in 0 to H - 1 generate
     hlayer : HNode port map (
         clk => clk,
         h_in => wnhArray(i),
-        bias => wArray(0)(N + i),
+        bias => wArray(0)(N + 1 + i),
         h_out => hmArray(i)
     );
 end generate gen_hlayer;
@@ -116,7 +116,7 @@ gen_mlayer : for i in 0 to M - 1 generate
     mlayer : MNode port map (
         clk => clk,
         m_in => whmArray(i),
-        bias => wArray(0)(N + H + i),
+        bias => wArray(0)(N + H + 1 + i),
         m_out => mOutArray(i)
     );
 end generate gen_mlayer;
@@ -128,11 +128,11 @@ end generate gen_mlayer;
 -- Multiply all outputs of N layer and transpose for input to H layer
 -- Transposition: N-Layer outputs N H-sized Arrays
 --                H-Layer inputs H N-sized Arrays
-multTransposeNH:process(nhArray)
+multTransposeNH:process(nhArray, wArray)
 begin
     for x in nhArray'range loop
         for y in wnhArray'range loop
-            wnhArray(y)(x) <= wArray(x + 1)(y + N) * nhArray(x)(y);
+            wnhArray(y)(x) <= resize(wArray(x + 1)(y + N + 1) * nhArray(x)(y), littleM, littleN);
         end loop;
     end loop;
 end process multTransposeNH;
@@ -140,11 +140,11 @@ end process multTransposeNH;
 -- Multiply all outputs of H layer and transpose for input to M layer
 -- Transposition: H-Layer outputs H M-sized Arrays
 --                M-Layer inputs M H-sized Arrays
-multTransposeHM:process(hmArray)
+multTransposeHM:process(hmArray, wArray)
 begin
     for x in hmArray'range loop
         for y in whmArray'range loop
-            whmArray(y)(x) <= wArray(x + 1 + N)(y + N + H) * hmArray(x)(y);
+            whmArray(y)(x) <= resize(wArray(x + 1 + N)(y + N + H + 1) * hmArray(x)(y), littleM, littleN);
         end loop; 
     end loop;
 end process multTransposeHM;
@@ -157,26 +157,69 @@ end process multTransposeHM;
 update:process(clk)
 begin
     if clk'event and clk = '1' then
-        if SE = '1' then
-            wByte <= SI & wByte(littleM - 1 downto littleN);
-            readCnt <= readCnt + 1;
-        else
-            wByte <= wByte;
-            readCnt <= readCnt;
-        end if;
+        wByte <= nextWByte;
+        readCnt <= nextReadCnt;
+        storeByte <= nextStoreByte;
+        storeCnt <= nextStoreCnt;
+        storeWidth <= nextStoreWidth;
+        storeDepth <= nextStoreDepth;
+        wArray(storeWidth)(storeDepth) <= nextStoreByte;
     end if;
 end process update;
 
+-- count number of bits read in
+counter:process(readCnt, SE)
+begin
+    if SE = '1' then
+        nextReadCnt <= readCnt + 1;
+    else
+        nextReadCnt <= readCnt;
+    end if;
+end process counter;
+
+-- Read bit in from SerialIn to reconstruct fixed-point number
+readW:process(SI, SE, wByte)
+begin
+    if SE = '1' then
+        nextWByte <= SI & wByte(littleM - 1 downto littleN);
+    else
+        nextWByte <= wByte;
+    end if;
+end process readW;
+
 -- update storeByte and storeCnt whenever 9 bits are read
-storeByte <= wByte when readCnt rem wWidth = 0 else storeByte;
-storeCnt <= readCnt mod wWidth when readCnt rem wWidth = 0 else storeCnt;
+storeCU:process(wByte, readCnt, SE, storeByte, storeCnt)
+begin
+    if SE = '1' and readCnt = 8 then
+        nextStoreByte <= wByte;
+        nextStoreCnt <= storeCnt + 1;
+    else
+        nextStoreByte <= storeByte;
+        nextStoreCnt <= storeCnt;
+    end if;
+end process storeCU;
 
 -- calculate the index of the weight array for the next number
-storeWidth <= storeCnt rem wArrayWidth;
-storeDepth <= storeCnt mod wArrayDepth;
+arrayIndex:process(storeCnt, SE, storeWidth, storeDepth)
+begin
+    if SE = '1' then
+        nextStoreWidth <= storeCnt rem wArrayWidth;
+        nextStoreDepth <= storeCnt mod wArrayDepth;
+    else
+        nextStoreWidth <= storeWidth;
+        nextStoreDepth <= storeDepth;
+    end if; 
+end process arrayIndex;
 
 -- Store reconstructed byte into the weight array
-wArray(storeWidth)(storeDepth) <= storeByte;
+--storeW:process(storeByte, storeWidth, storeDepth, SE, wArray)
+--begin
+--    if SE = '1' then
+--        arrayByte <= storeByte;
+--    else
+--        arrayByte <= wArray(storeWidth)(storeDepth);
+--    end if;
+--end process storeW;
 
 ---------------------------------------------------------------------------
 --------------------------- OUTPUT CALCULATION ----------------------------
