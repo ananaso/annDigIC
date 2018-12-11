@@ -15,12 +15,13 @@ use ieee_proposed.fixed_pkg.all;
 use work.annGenericArrays_pkg.all;
 
 entity mlp is
+GENERICIZE??
 port (
     SI      : in std_logic;
     SE      : in std_logic;
     clk     : in std_logic;
-    u       : in std_logic_vector(N * 8 - 1 downto 0);
-    yhat    : out std_logic_vector(M * 8 - 1 downto 0)
+    u       : in std_logic_vector(mlpN * 8 - 1 downto 0);
+    yhat    : out std_logic_vector(mlpM * 8 - 1 downto 0)
 );
 end mlp;
 

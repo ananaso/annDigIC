@@ -141,6 +141,10 @@ begin
     file_close(img_in);
 end read_wdat;
 
+procedure is
+begin
+end procedure;
+
 procedure send_sfixed (
     val : in sfixed(littleM downto littleN)
 ) is
@@ -175,8 +179,7 @@ wait for clk_period;
 
 read_img(filename1_in);
 
--- HOLD UP THERE COWBOY! WE'RE NOT DONE HERE!
-assert false report "HOLD UP THERE COWBOY! WE'RE NOT DONE HERE!" severity failure;
+
 
 wait for clk_period * 10;
 assert false report "End of Simulation" severity failure;
