@@ -15,13 +15,14 @@ use ieee_proposed.fixed_pkg.all;
 use work.annGenericArrays_pkg.all;
 
 entity mlp is
-GENERICIZE??
 port (
     SI      : in std_logic;
     SE      : in std_logic;
     clk     : in std_logic;
-    u       : in std_logic_vector(mlpN * 8 - 1 downto 0);
-    yhat    : out std_logic_vector(mlpM * 8 - 1 downto 0)
+    i_valid : in std_logic;
+    u       : in pixelArray;
+    o_valid : out std_logic;
+    yhat    : out std_logic_vector(M * 8 - 1 downto 0)
 );
 end mlp;
 
@@ -31,7 +32,7 @@ architecture mixed of mlp is
 component NNode
 port (
     clk     : in std_logic;
-    u       : in std_logic_vector(7 downto 0);
+    u       : in sfixed(littleM downto littleN);
     n_out   : out hQArray
 );
 end component;
@@ -52,7 +53,7 @@ port (
     clk     : in std_logic;
     m_in    : in hQArray;
     bias    : in sfixed(littleM downto littleN);
-    m_out   : out std_logic
+    m_out   : out mQArray
 );
 end component;
 
@@ -72,20 +73,22 @@ type t_nhArray is array (0 to N - 1) of hQArray;
 type t_wnhArray is array (0 to H - 1) of nQArray;
 type t_hmArray is array (0 to H - 1) of mQArray;
 type t_whmArray is array (0 to M - 1) of hQArray;
-type t_mOutArray is array (0 to M - 1) of std_logic;
+type t_moArray is array (0 to M - 1) of mQArray;
 signal nhArray : t_nhArray;
 signal wnhArray : t_wnhArray;
 signal hmArray : t_hmArray;
 signal whmArray : t_whmArray;
-signal mOutArray : t_mOutArray;
+signal mOutArray : t_moArray;
 
 -- signals for storing bytes into the weights array
 signal wByte, nextWByte : sfixed(littleM downto littleN);
 signal storeByte, nextStoreByte : sfixed(littleM downto littleN);
-signal readCnt, nextReadCnt : unsigned(2 downto 0) := (others => '0');
-signal storeCnt, nextStoreCnt : integer := 0;
+signal readCnt, nextReadCnt : integer := -1;
 signal storeWidth, nextStoreWidth, storeDepth, nextStoreDepth : integer := 0;
-signal arrayByte : sfixed(littleM downto littleN);
+
+-- output signalling stuff
+signal compCounter, next_compCounter : integer := -1;
+signal next_ovalid : std_logic;
 
 begin
 
@@ -97,7 +100,7 @@ begin
 gen_nlayer : for i in 0 to N - 1 generate
     nlayer : NNode port map (
         clk => clk,
-        u => u((N - i) * 8 - 1 downto (N - i) * 8 - 8),
+        u => u(i),
         n_out => nhArray(i)
     );
 end generate gen_nlayer;
@@ -133,7 +136,7 @@ multTransposeNH:process(nhArray, wArray)
 begin
     for x in nhArray'range loop
         for y in wnhArray'range loop
-            wnhArray(y)(x) <= resize(wArray(x + 1)(y + N + 1) * nhArray(x)(y), littleM, littleN);
+            wnhArray(y)(x) <= resize(wArray(y + N + 1)(x + 1) * nhArray(x)(y), littleM, littleN);
         end loop;
     end loop;
 end process multTransposeNH;
@@ -145,7 +148,7 @@ multTransposeHM:process(hmArray, wArray)
 begin
     for x in hmArray'range loop
         for y in whmArray'range loop
-            whmArray(y)(x) <= resize(wArray(x + 1 + N)(y + N + H + 1) * hmArray(x)(y), littleM, littleN);
+            whmArray(y)(x) <= resize(wArray(y + N + H + 1)(x + 1 + N) * hmArray(x)(y), littleM, littleN);
         end loop; 
     end loop;
 end process multTransposeHM;
@@ -161,10 +164,11 @@ begin
         wByte <= nextWByte;
         readCnt <= nextReadCnt;
         storeByte <= nextStoreByte;
-        storeCnt <= nextStoreCnt;
         storeWidth <= nextStoreWidth;
         storeDepth <= nextStoreDepth;
-        wArray(storeWidth)(storeDepth) <= nextStoreByte;
+        wArray(storeDepth)(storeWidth) <= nextStoreByte;
+        compCounter <= next_compCounter;
+        o_valid <= next_ovalid;
     end if;
 end process update;
 
@@ -172,68 +176,96 @@ end process update;
 counter:process(readCnt, SE)
 begin
     if SE = '1' then
-        nextReadCnt <= readCnt + 1;
+        if readCnt > 7 then
+            nextReadCnt <= 0;
+        else
+            nextReadCnt <= readCnt + 1;
+        end if;
     else
-        nextReadCnt <= readCnt;
+        nextReadCnt <= -1;
     end if;
 end process counter;
 
 -- Read bit in from SerialIn to reconstruct fixed-point number
-readW:process(SI, SE, wByte)
+readW:process(SI, wByte)
 begin
-    if SE = '1' then
-        nextWByte <= SI & wByte(littleM - 1 downto littleN);
-    else
-        nextWByte <= wByte;
-    end if;
+    nextWByte <= wByte(littleM - 1 downto littleN) & SI;
 end process readW;
 
--- update storeByte and storeCnt whenever 9 bits are read
-storeCU:process(wByte, readCnt, SE, storeByte, storeCnt)
+-- update storeByte 9 bits are read
+storeCU:process(wByte, readCnt, storeByte)
 begin
-    if SE = '1' and readCnt = 8 then
+    if readCnt > 7 then
         nextStoreByte <= wByte;
-        nextStoreCnt <= storeCnt + 1;
     else
         nextStoreByte <= storeByte;
-        nextStoreCnt <= storeCnt;
     end if;
 end process storeCU;
 
--- calculate the index of the weight array for the next number
-arrayIndex:process(storeCnt, SE, storeWidth, storeDepth)
+-- counter for the "width" index of the weights array
+weightWidth:process(readCnt, storeWidth, SE)
 begin
-    if SE = '1' then
-        nextStoreWidth <= storeCnt rem wArrayWidth;
-        nextStoreDepth <= storeCnt mod wArrayDepth;
+    if SE = '1' and readCnt > 7 then
+        if storeWidth < wArrayWidth - 1 then
+            nextStoreWidth <= storeWidth + 1;
+        else
+            nextStoreWidth <= 0;
+        end if;
     else
         nextStoreWidth <= storeWidth;
-        nextStoreDepth <= storeDepth;
-    end if; 
-end process arrayIndex;
+    end if;
+end process weightWidth;
 
--- Store reconstructed byte into the weight array
---storeW:process(storeByte, storeWidth, storeDepth, SE, wArray)
---begin
---    if SE = '1' then
---        arrayByte <= storeByte;
---    else
---        arrayByte <= wArray(storeWidth)(storeDepth);
---    end if;
---end process storeW;
+-- counter for the "depth" index of the weights array
+arrayIndex:process(storeWidth)
+begin
+    if storeWidth > wArrayWidth - 2 and SE = '1' then
+        if storeDepth < wArrayDepth - 1 then
+            nextStoreDepth <= storeDepth + 1;
+        else
+            nextStoreDepth <= storeDepth;
+        end if;
+    else
+        nextStoreDepth <= storeDepth;
+    end if;
+end process arrayIndex;
 
 ---------------------------------------------------------------------------
 --------------------------- OUTPUT CALCULATION ----------------------------
 ---------------------------------------------------------------------------
 
+outCount:process(i_valid, compCounter)
+begin
+    if i_valid = '1' then
+        next_compCounter <= compCounter + 1;
+    elsif compCounter > -1 then
+        next_compCounter <= compCounter + 1;
+    else
+        next_compCounter <= compCounter;
+    end if;
+end process outCount;
+
+oValid:process(compCounter)
+begin
+    if compCounter > 10 then
+        next_ovalid <= '1';
+    else
+        next_ovalid <= '0';
+    end if;
+end process oValid;
+
 scaleOuts:process(mOutArray)
+variable temp : sfixed(littleM - 1 downto littleN);
 begin
     for x in mOutArray'range loop
-        if mOutArray(x) = '1' then
-            yhat(x * 8 + 7 downto x * 8) <= X"FF";    -- 255, 0b11111111
-        else
-            yhat(x * 8 + 7 downto x * 8) <= X"00";    -- 0, 0b00000000
-        end if;
+        for m in mQArray'range loop
+            temp := resize(mOutArray(x)(m), temp);
+            if temp > to_sfixed(0, temp) then
+                yhat <= (others => '0');
+            else
+                yhat <= (others => '1');
+            end if;
+        end loop;
     end loop;
 end process scaleOuts;
 

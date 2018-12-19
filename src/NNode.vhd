@@ -19,29 +19,22 @@ use work.annGenericArrays_pkg.all;
 entity NNode is
 port (
     clk     : in std_logic;
-    u       : in std_logic_vector(7 downto 0);
+    u       : in sfixed(littleM downto littleN);
     n_out    : out hQArray
 );
 end NNode;
 
 architecture behavioral of NNode is
 
-signal scaledU : sfixed(littleM downto littleN);
-
 begin
 
-scale:process(clk)
+mult:process(clk)
 begin
     if clk'event and clk = '1' then
-        scaledU <= to_sfixed(to_integer(unsigned(u) / 255), scaledU);
+        for x in 0 to hQArray'length - 1 loop
+            n_out(x) <= u;
+        end loop;
     end if;
-end process scale;
-
-mult:process(scaledU)
-begin
-    for x in 0 to hQArray'length - 1 loop
-        n_out(x) <= scaledU;
-    end loop;
 end process mult;
 
 end behavioral;

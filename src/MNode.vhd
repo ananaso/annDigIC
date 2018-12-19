@@ -20,19 +20,19 @@ port (
     clk     : in std_logic;
     m_in    : in hQArray;
     bias    : in sfixed(littleM downto littleN);
-    m_out   : out std_logic
+    m_out   : out mQArray
 );
 end MNode;
 
 architecture behavioral of MNode is
 
-signal inputSum : sfixed(littleM downto littleN) := to_sfixed(0, littleM, littleN);
+signal inputSum : sfixed(littleM downto littleN);
 signal reluVal : sfixed(littleM downto littleN);
 
 begin
 
 sum:process(m_in, bias)
-variable temp : sfixed(littleM downto littleN) := to_sfixed(0, littleM, littleN);
+variable temp : sfixed(littleM downto littleN);
 begin
     temp := bias;
     for val in m_in'reverse_range loop
@@ -44,23 +44,19 @@ end process sum;
 relu:process(clk)
 begin
     if clk'event and clk = '1' then
-        if inputSum <= to_sfixed(0, inputSum) then
+        if inputSum < to_sfixed(0, inputSum) then
             reluVal <= to_sfixed(0, reluVal);
-        elsif inputSum >= to_sfixed(1, inputSum) then
-            reluVal <= to_sfixed(1, reluVal);
         else
-            reluVal <= resize(inputSum, reluVal);
+            reluVal <= to_sfixed(1, reluVal);
         end if;
     end if;
 end process relu;
 
 output:process(reluVal)
 begin
-    if reluVal < to_sfixed(0.5, reluVal) then
-        m_out <= '0';
-    else
-        m_out <= '1';
-    end if;
+    for x in 0 to M - 1 loop
+        m_out(x) <= resize(reluVal, littleM, littleN);
+    end loop;
 end process output;
 
 end behavioral;
