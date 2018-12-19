@@ -1,0 +1,902 @@
+#-----------------------------------------------------------
+# Vivado v2018.2.1 (64-bit)
+# SW Build 2288692 on Thu Jul 26 18:23:50 MDT 2018
+# IP Build 2289599 on Thu Jul 26 21:09:20 MDT 2018
+# Start of session at: Wed Dec 19 14:46:43 2018
+# Process ID: 12843
+# Current directory: /home/alden/Documents/digIC/project/project.runs/synth_1
+# Command line: vivado -log mlp.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source mlp.tcl
+# Log file: /home/alden/Documents/digIC/project/project.runs/synth_1/mlp.vds
+# Journal file: /home/alden/Documents/digIC/project/project.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+Sourcing tcl script '/home/alden/.Xilinx/Vivado/Vivado_init.tcl'
+source mlp.tcl -notrace
+Command: synth_design -top mlp -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 12874 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1256.652 ; gain = 86.762 ; free physical = 3475 ; free virtual = 10705
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'mlp' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:29]
+INFO: [Synth 8-3491] module 'NNode' declared at '/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:19' bound to instance 'nlayer' of component 'NNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:103]
+INFO: [Synth 8-638] synthesizing module 'NNode' [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:27]
+INFO: [Synth 8-4471] merging register 'n_out_reg[18][4:-4]' into 'n_out_reg[19][4:-4]' [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+INFO: [Synth 8-4471] merging register 'n_out_reg[17][4:-4]' into 'n_out_reg[19][4:-4]' [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+INFO: [Synth 8-4471] merging register 'n_out_reg[16][4:-4]' into 'n_out_reg[19][4:-4]' [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+INFO: [Synth 8-4471] merging register 'n_out_reg[15][4:-4]' into 'n_out_reg[19][4:-4]' [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+INFO: [Synth 8-4471] merging register 'n_out_reg[14][4:-4]' into 'n_out_reg[19][4:-4]' [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+INFO: [Synth 8-4471] merging register 'n_out_reg[13][4:-4]' into 'n_out_reg[19][4:-4]' [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+INFO: [Synth 8-4471] merging register 'n_out_reg[12][4:-4]' into 'n_out_reg[19][4:-4]' [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+INFO: [Synth 8-4471] merging register 'n_out_reg[11][4:-4]' into 'n_out_reg[19][4:-4]' [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+INFO: [Synth 8-4471] merging register 'n_out_reg[10][4:-4]' into 'n_out_reg[19][4:-4]' [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+INFO: [Synth 8-4471] merging register 'n_out_reg[9][4:-4]' into 'n_out_reg[19][4:-4]' [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+INFO: [Synth 8-4471] merging register 'n_out_reg[8][4:-4]' into 'n_out_reg[19][4:-4]' [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+INFO: [Synth 8-4471] merging register 'n_out_reg[7][4:-4]' into 'n_out_reg[19][4:-4]' [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+INFO: [Synth 8-4471] merging register 'n_out_reg[6][4:-4]' into 'n_out_reg[19][4:-4]' [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+INFO: [Synth 8-4471] merging register 'n_out_reg[5][4:-4]' into 'n_out_reg[19][4:-4]' [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+INFO: [Synth 8-4471] merging register 'n_out_reg[4][4:-4]' into 'n_out_reg[19][4:-4]' [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+INFO: [Synth 8-4471] merging register 'n_out_reg[3][4:-4]' into 'n_out_reg[19][4:-4]' [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+INFO: [Synth 8-4471] merging register 'n_out_reg[2][4:-4]' into 'n_out_reg[19][4:-4]' [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+INFO: [Synth 8-4471] merging register 'n_out_reg[1][4:-4]' into 'n_out_reg[19][4:-4]' [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+INFO: [Synth 8-4471] merging register 'n_out_reg[0][4:-4]' into 'n_out_reg[19][4:-4]' [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+WARNING: [Synth 8-6014] Unused sequential element n_out_reg[18] was removed.  [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+WARNING: [Synth 8-6014] Unused sequential element n_out_reg[17] was removed.  [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+WARNING: [Synth 8-6014] Unused sequential element n_out_reg[16] was removed.  [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+WARNING: [Synth 8-6014] Unused sequential element n_out_reg[15] was removed.  [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+WARNING: [Synth 8-6014] Unused sequential element n_out_reg[14] was removed.  [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+WARNING: [Synth 8-6014] Unused sequential element n_out_reg[13] was removed.  [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+WARNING: [Synth 8-6014] Unused sequential element n_out_reg[12] was removed.  [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+WARNING: [Synth 8-6014] Unused sequential element n_out_reg[11] was removed.  [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+WARNING: [Synth 8-6014] Unused sequential element n_out_reg[10] was removed.  [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+WARNING: [Synth 8-6014] Unused sequential element n_out_reg[9] was removed.  [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+WARNING: [Synth 8-6014] Unused sequential element n_out_reg[8] was removed.  [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+WARNING: [Synth 8-6014] Unused sequential element n_out_reg[7] was removed.  [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+WARNING: [Synth 8-6014] Unused sequential element n_out_reg[6] was removed.  [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+WARNING: [Synth 8-6014] Unused sequential element n_out_reg[5] was removed.  [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+WARNING: [Synth 8-6014] Unused sequential element n_out_reg[4] was removed.  [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+WARNING: [Synth 8-6014] Unused sequential element n_out_reg[3] was removed.  [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+WARNING: [Synth 8-6014] Unused sequential element n_out_reg[2] was removed.  [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+WARNING: [Synth 8-6014] Unused sequential element n_out_reg[1] was removed.  [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+WARNING: [Synth 8-6014] Unused sequential element n_out_reg[0] was removed.  [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:35]
+INFO: [Synth 8-256] done synthesizing module 'NNode' (1#1) [/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:27]
+INFO: [Synth 8-3491] module 'NNode' declared at '/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:19' bound to instance 'nlayer' of component 'NNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:103]
+INFO: [Synth 8-3491] module 'NNode' declared at '/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:19' bound to instance 'nlayer' of component 'NNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:103]
+INFO: [Synth 8-3491] module 'NNode' declared at '/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:19' bound to instance 'nlayer' of component 'NNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:103]
+INFO: [Synth 8-3491] module 'NNode' declared at '/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:19' bound to instance 'nlayer' of component 'NNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:103]
+INFO: [Synth 8-3491] module 'NNode' declared at '/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:19' bound to instance 'nlayer' of component 'NNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:103]
+INFO: [Synth 8-3491] module 'NNode' declared at '/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:19' bound to instance 'nlayer' of component 'NNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:103]
+INFO: [Synth 8-3491] module 'NNode' declared at '/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:19' bound to instance 'nlayer' of component 'NNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:103]
+INFO: [Synth 8-3491] module 'NNode' declared at '/home/alden/Documents/digIC/annDigIC/src/NNode.vhd:19' bound to instance 'nlayer' of component 'NNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:103]
+INFO: [Synth 8-3491] module 'HNode' declared at '/home/alden/Documents/digIC/annDigIC/src/HNode.vhd:18' bound to instance 'hlayer' of component 'HNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:112]
+INFO: [Synth 8-638] synthesizing module 'HNode' [/home/alden/Documents/digIC/annDigIC/src/HNode.vhd:27]
+INFO: [Synth 8-256] done synthesizing module 'HNode' (2#1) [/home/alden/Documents/digIC/annDigIC/src/HNode.vhd:27]
+INFO: [Synth 8-3491] module 'HNode' declared at '/home/alden/Documents/digIC/annDigIC/src/HNode.vhd:18' bound to instance 'hlayer' of component 'HNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:112]
+INFO: [Synth 8-3491] module 'HNode' declared at '/home/alden/Documents/digIC/annDigIC/src/HNode.vhd:18' bound to instance 'hlayer' of component 'HNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:112]
+INFO: [Synth 8-3491] module 'HNode' declared at '/home/alden/Documents/digIC/annDigIC/src/HNode.vhd:18' bound to instance 'hlayer' of component 'HNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:112]
+INFO: [Synth 8-3491] module 'HNode' declared at '/home/alden/Documents/digIC/annDigIC/src/HNode.vhd:18' bound to instance 'hlayer' of component 'HNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:112]
+INFO: [Synth 8-3491] module 'HNode' declared at '/home/alden/Documents/digIC/annDigIC/src/HNode.vhd:18' bound to instance 'hlayer' of component 'HNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:112]
+INFO: [Synth 8-3491] module 'HNode' declared at '/home/alden/Documents/digIC/annDigIC/src/HNode.vhd:18' bound to instance 'hlayer' of component 'HNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:112]
+INFO: [Synth 8-3491] module 'HNode' declared at '/home/alden/Documents/digIC/annDigIC/src/HNode.vhd:18' bound to instance 'hlayer' of component 'HNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:112]
+INFO: [Synth 8-3491] module 'HNode' declared at '/home/alden/Documents/digIC/annDigIC/src/HNode.vhd:18' bound to instance 'hlayer' of component 'HNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:112]
+INFO: [Synth 8-3491] module 'HNode' declared at '/home/alden/Documents/digIC/annDigIC/src/HNode.vhd:18' bound to instance 'hlayer' of component 'HNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:112]
+INFO: [Synth 8-3491] module 'HNode' declared at '/home/alden/Documents/digIC/annDigIC/src/HNode.vhd:18' bound to instance 'hlayer' of component 'HNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:112]
+INFO: [Synth 8-3491] module 'HNode' declared at '/home/alden/Documents/digIC/annDigIC/src/HNode.vhd:18' bound to instance 'hlayer' of component 'HNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:112]
+INFO: [Synth 8-3491] module 'HNode' declared at '/home/alden/Documents/digIC/annDigIC/src/HNode.vhd:18' bound to instance 'hlayer' of component 'HNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:112]
+INFO: [Synth 8-3491] module 'HNode' declared at '/home/alden/Documents/digIC/annDigIC/src/HNode.vhd:18' bound to instance 'hlayer' of component 'HNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:112]
+INFO: [Synth 8-3491] module 'HNode' declared at '/home/alden/Documents/digIC/annDigIC/src/HNode.vhd:18' bound to instance 'hlayer' of component 'HNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:112]
+INFO: [Synth 8-3491] module 'HNode' declared at '/home/alden/Documents/digIC/annDigIC/src/HNode.vhd:18' bound to instance 'hlayer' of component 'HNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:112]
+INFO: [Synth 8-3491] module 'HNode' declared at '/home/alden/Documents/digIC/annDigIC/src/HNode.vhd:18' bound to instance 'hlayer' of component 'HNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:112]
+INFO: [Synth 8-3491] module 'HNode' declared at '/home/alden/Documents/digIC/annDigIC/src/HNode.vhd:18' bound to instance 'hlayer' of component 'HNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:112]
+INFO: [Synth 8-3491] module 'HNode' declared at '/home/alden/Documents/digIC/annDigIC/src/HNode.vhd:18' bound to instance 'hlayer' of component 'HNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:112]
+INFO: [Synth 8-3491] module 'HNode' declared at '/home/alden/Documents/digIC/annDigIC/src/HNode.vhd:18' bound to instance 'hlayer' of component 'HNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:112]
+INFO: [Synth 8-3491] module 'MNode' declared at '/home/alden/Documents/digIC/annDigIC/src/MNode.vhd:18' bound to instance 'mlayer' of component 'MNode' [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:122]
+INFO: [Synth 8-638] synthesizing module 'MNode' [/home/alden/Documents/digIC/annDigIC/src/MNode.vhd:27]
+INFO: [Synth 8-256] done synthesizing module 'MNode' (3#1) [/home/alden/Documents/digIC/annDigIC/src/MNode.vhd:27]
+WARNING: [Synth 8-614] signal 'SE' is read in the process but is not in the sensitivity list [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:223]
+WARNING: [Synth 8-614] signal 'storeDepth' is read in the process but is not in the sensitivity list [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:223]
+WARNING: [Synth 8-5856] 3D RAM wnhArray_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
+WARNING: [Synth 8-5856] 3D RAM whmArray_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
+WARNING: [Synth 8-5856] 3D RAM wArray_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[0][0] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[0][1] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[0][2] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[0][3] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[0][4] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[0][5] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[0][6] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[0][7] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[0][8] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[0][9] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][0] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][1] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][2] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][3] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][4] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][5] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][6] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][7] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][8] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][9] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][10] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][11] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][12] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][13] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][14] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][15] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][16] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][17] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][18] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][19] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][20] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][21] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][22] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][23] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][24] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][25] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][26] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][27] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][28] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][29] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[1][30] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][0] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][1] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][2] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][3] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][4] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][5] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][6] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][7] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][8] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][9] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][10] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][11] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][12] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][13] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][14] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][15] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][16] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][17] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][18] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][19] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][20] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][21] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][22] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][23] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][24] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][25] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][26] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][27] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][28] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][29] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[2][30] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[3][0] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[3][1] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[3][2] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[3][3] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[3][4] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[3][5] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[3][6] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[3][7] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element wArray_reg[3][8] was removed.  [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:171]
+INFO: [Common 17-14] Message 'Synth 8-6014' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-256] done synthesizing module 'mlp' (4#1) [/home/alden/Documents/digIC/annDigIC/src/mlp.vhd:29]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1423.277 ; gain = 253.387 ; free physical = 3369 ; free virtual = 10604
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1423.277 ; gain = 253.387 ; free physical = 3384 ; free virtual = 10627
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1423.277 ; gain = 253.387 ; free physical = 3384 ; free virtual = 10627
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/alden/Documents/reconfig/ex4/Part3/Part3.srcs/constrs_1/imports/Part2/Nexys4.xdc]
+Finished Parsing XDC File [/home/alden/Documents/reconfig/ex4/Part3/Part3.srcs/constrs_1/imports/Part2/Nexys4.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/alden/Documents/reconfig/ex4/Part3/Part3.srcs/constrs_1/imports/Part2/Nexys4.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/mlp_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/mlp_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1770.043 ; gain = 0.000 ; free physical = 3094 ; free virtual = 10335
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:26 ; elapsed = 00:00:36 . Memory (MB): peak = 1770.043 ; gain = 600.152 ; free physical = 3201 ; free virtual = 10442
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:26 ; elapsed = 00:00:36 . Memory (MB): peak = 1770.043 ; gain = 600.152 ; free physical = 3201 ; free virtual = 10442
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:36 . Memory (MB): peak = 1770.043 ; gain = 600.152 ; free physical = 3203 ; free virtual = 10444
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5545] ROM "wArray_reg[0][10]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][11]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][12]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][13]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][14]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][15]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][16]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][17]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][18]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][19]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][20]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][21]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][22]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][23]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][24]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][25]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][26]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][27]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][28]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][29]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][30]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[10][1]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[10][2]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[10][3]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[10][4]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[10][5]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[10][6]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[10][7]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[10][8]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[10][9]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:36 ; elapsed = 00:00:48 . Memory (MB): peak = 1770.043 ; gain = 600.152 ; free physical = 3186 ; free virtual = 10429
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+--------------+------------+----------+
+|      |RTL Partition |Replication |Instances |
++------+--------------+------------+----------+
+|1     |mlp__GB0      |           1|     31636|
+|2     |mlp__GB1      |           1|      9142|
+|3     |mlp__GB2      |           1|     10236|
++------+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 4     
+	   2 Input     10 Bit       Adders := 400   
++---Registers : 
+	               32 Bit    Registers := 3     
+	                9 Bit    Registers := 253   
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 1601  
+	   3 Input      9 Bit        Muxes := 200   
+	   2 Input      8 Bit        Muxes := 4     
+	   2 Input      1 Bit        Muxes := 240   
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module mlp 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 4     
+	   2 Input     10 Bit       Adders := 200   
++---Registers : 
+	               32 Bit    Registers := 3     
+	                9 Bit    Registers := 223   
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 1001  
+	   3 Input      9 Bit        Muxes := 200   
+	   2 Input      8 Bit        Muxes := 4     
+	   2 Input      1 Bit        Muxes := 240   
+Module NNode__1 
+Detailed RTL Component Info : 
++---Registers : 
+	                9 Bit    Registers := 1     
+Module NNode__2 
+Detailed RTL Component Info : 
++---Registers : 
+	                9 Bit    Registers := 1     
+Module NNode__3 
+Detailed RTL Component Info : 
++---Registers : 
+	                9 Bit    Registers := 1     
+Module NNode__4 
+Detailed RTL Component Info : 
++---Registers : 
+	                9 Bit    Registers := 1     
+Module NNode__5 
+Detailed RTL Component Info : 
++---Registers : 
+	                9 Bit    Registers := 1     
+Module NNode__6 
+Detailed RTL Component Info : 
++---Registers : 
+	                9 Bit    Registers := 1     
+Module NNode__7 
+Detailed RTL Component Info : 
++---Registers : 
+	                9 Bit    Registers := 1     
+Module NNode__8 
+Detailed RTL Component Info : 
++---Registers : 
+	                9 Bit    Registers := 1     
+Module HNode__1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 9     
++---Registers : 
+	                9 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 27    
+Module HNode__2 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 9     
++---Registers : 
+	                9 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 27    
+Module HNode__3 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 9     
++---Registers : 
+	                9 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 27    
+Module HNode__4 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 9     
++---Registers : 
+	                9 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 27    
+Module HNode__5 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 9     
++---Registers : 
+	                9 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 27    
+Module HNode__6 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 9     
++---Registers : 
+	                9 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 27    
+Module HNode__7 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 9     
++---Registers : 
+	                9 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 27    
+Module HNode__8 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 9     
++---Registers : 
+	                9 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 27    
+Module HNode__9 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 9     
++---Registers : 
+	                9 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 27    
+Module HNode__10 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 9     
++---Registers : 
+	                9 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 27    
+Module HNode__11 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 9     
++---Registers : 
+	                9 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 27    
+Module HNode__12 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 9     
++---Registers : 
+	                9 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 27    
+Module HNode__13 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 9     
++---Registers : 
+	                9 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 27    
+Module HNode__14 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 9     
++---Registers : 
+	                9 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 27    
+Module HNode__15 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 9     
++---Registers : 
+	                9 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 27    
+Module HNode__16 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 9     
++---Registers : 
+	                9 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 27    
+Module MNode 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 20    
++---Registers : 
+	                9 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 60    
+Module HNode__17 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 9     
++---Registers : 
+	                9 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 27    
+Module HNode__18 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 9     
++---Registers : 
+	                9 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 27    
+Module NNode 
+Detailed RTL Component Info : 
++---Registers : 
+	                9 Bit    Registers := 1     
+Module HNode__19 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 9     
++---Registers : 
+	                9 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 27    
+Module HNode 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 9     
++---Registers : 
+	                9 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 27    
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5545] ROM "wArray_reg[10][9]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][30]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][10]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][11]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][13]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][14]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][15]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][17]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][18]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][19]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][20]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][22]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][23]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][24]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][26]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][27]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][29]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[10][1]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[10][2]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[10][3]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[10][4]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[10][5]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[10][6]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[10][7]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[10][8]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][12]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][16]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][21]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][25]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "wArray_reg[0][28]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[0].hlayer/reluVal_reg[-4]' (FDR) to 'i_0/gen_hlayer[0].hlayer/reluVal_reg[-3]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[0].hlayer/reluVal_reg[-3]' (FDR) to 'i_0/gen_hlayer[0].hlayer/reluVal_reg[-2]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[0].hlayer/reluVal_reg[-2]' (FDR) to 'i_0/gen_hlayer[0].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[0].hlayer/reluVal_reg[2]' (FDR) to 'i_0/gen_hlayer[0].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[0].hlayer/reluVal_reg[3]' (FDR) to 'i_0/gen_hlayer[0].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[0].hlayer/reluVal_reg[4]' (FDR) to 'i_0/gen_hlayer[0].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[0].hlayer/reluVal_reg[-1]' (FDR) to 'i_0/gen_hlayer[0].hlayer/reluVal_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\gen_hlayer[0].hlayer /\reluVal_reg[1] )
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[1].hlayer/reluVal_reg[-4]' (FDR) to 'i_0/gen_hlayer[1].hlayer/reluVal_reg[-3]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[1].hlayer/reluVal_reg[-3]' (FDR) to 'i_0/gen_hlayer[1].hlayer/reluVal_reg[-2]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[1].hlayer/reluVal_reg[-2]' (FDR) to 'i_0/gen_hlayer[1].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[1].hlayer/reluVal_reg[2]' (FDR) to 'i_0/gen_hlayer[1].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[1].hlayer/reluVal_reg[3]' (FDR) to 'i_0/gen_hlayer[1].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[1].hlayer/reluVal_reg[4]' (FDR) to 'i_0/gen_hlayer[1].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[1].hlayer/reluVal_reg[-1]' (FDR) to 'i_0/gen_hlayer[1].hlayer/reluVal_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\gen_hlayer[1].hlayer /\reluVal_reg[1] )
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[2].hlayer/reluVal_reg[-4]' (FDR) to 'i_0/gen_hlayer[2].hlayer/reluVal_reg[-3]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[2].hlayer/reluVal_reg[-3]' (FDR) to 'i_0/gen_hlayer[2].hlayer/reluVal_reg[-2]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[2].hlayer/reluVal_reg[-2]' (FDR) to 'i_0/gen_hlayer[2].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[2].hlayer/reluVal_reg[2]' (FDR) to 'i_0/gen_hlayer[2].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[2].hlayer/reluVal_reg[3]' (FDR) to 'i_0/gen_hlayer[2].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[2].hlayer/reluVal_reg[4]' (FDR) to 'i_0/gen_hlayer[2].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[2].hlayer/reluVal_reg[-1]' (FDR) to 'i_0/gen_hlayer[2].hlayer/reluVal_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\gen_hlayer[2].hlayer /\reluVal_reg[1] )
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[3].hlayer/reluVal_reg[-4]' (FDR) to 'i_0/gen_hlayer[3].hlayer/reluVal_reg[-3]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[3].hlayer/reluVal_reg[-3]' (FDR) to 'i_0/gen_hlayer[3].hlayer/reluVal_reg[-2]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[3].hlayer/reluVal_reg[-2]' (FDR) to 'i_0/gen_hlayer[3].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[3].hlayer/reluVal_reg[2]' (FDR) to 'i_0/gen_hlayer[3].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[3].hlayer/reluVal_reg[3]' (FDR) to 'i_0/gen_hlayer[3].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[3].hlayer/reluVal_reg[4]' (FDR) to 'i_0/gen_hlayer[3].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[3].hlayer/reluVal_reg[-1]' (FDR) to 'i_0/gen_hlayer[3].hlayer/reluVal_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\gen_hlayer[3].hlayer /\reluVal_reg[1] )
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[4].hlayer/reluVal_reg[-4]' (FDR) to 'i_0/gen_hlayer[4].hlayer/reluVal_reg[-3]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[4].hlayer/reluVal_reg[-3]' (FDR) to 'i_0/gen_hlayer[4].hlayer/reluVal_reg[-2]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[4].hlayer/reluVal_reg[-2]' (FDR) to 'i_0/gen_hlayer[4].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[4].hlayer/reluVal_reg[2]' (FDR) to 'i_0/gen_hlayer[4].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[4].hlayer/reluVal_reg[3]' (FDR) to 'i_0/gen_hlayer[4].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[4].hlayer/reluVal_reg[4]' (FDR) to 'i_0/gen_hlayer[4].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[4].hlayer/reluVal_reg[-1]' (FDR) to 'i_0/gen_hlayer[4].hlayer/reluVal_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\gen_hlayer[4].hlayer /\reluVal_reg[1] )
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[5].hlayer/reluVal_reg[-4]' (FDR) to 'i_0/gen_hlayer[5].hlayer/reluVal_reg[-3]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[5].hlayer/reluVal_reg[-3]' (FDR) to 'i_0/gen_hlayer[5].hlayer/reluVal_reg[-2]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[5].hlayer/reluVal_reg[-2]' (FDR) to 'i_0/gen_hlayer[5].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[5].hlayer/reluVal_reg[2]' (FDR) to 'i_0/gen_hlayer[5].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[5].hlayer/reluVal_reg[3]' (FDR) to 'i_0/gen_hlayer[5].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[5].hlayer/reluVal_reg[4]' (FDR) to 'i_0/gen_hlayer[5].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[5].hlayer/reluVal_reg[-1]' (FDR) to 'i_0/gen_hlayer[5].hlayer/reluVal_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\gen_hlayer[5].hlayer /\reluVal_reg[1] )
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[7].hlayer/reluVal_reg[-4]' (FDR) to 'i_0/gen_hlayer[7].hlayer/reluVal_reg[-3]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[7].hlayer/reluVal_reg[-3]' (FDR) to 'i_0/gen_hlayer[7].hlayer/reluVal_reg[-2]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[7].hlayer/reluVal_reg[-2]' (FDR) to 'i_0/gen_hlayer[7].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[7].hlayer/reluVal_reg[2]' (FDR) to 'i_0/gen_hlayer[7].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[7].hlayer/reluVal_reg[3]' (FDR) to 'i_0/gen_hlayer[7].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[7].hlayer/reluVal_reg[4]' (FDR) to 'i_0/gen_hlayer[7].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[7].hlayer/reluVal_reg[-1]' (FDR) to 'i_0/gen_hlayer[7].hlayer/reluVal_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\gen_hlayer[7].hlayer /\reluVal_reg[1] )
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[8].hlayer/reluVal_reg[-4]' (FDR) to 'i_0/gen_hlayer[8].hlayer/reluVal_reg[-3]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[8].hlayer/reluVal_reg[-3]' (FDR) to 'i_0/gen_hlayer[8].hlayer/reluVal_reg[-2]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[8].hlayer/reluVal_reg[-2]' (FDR) to 'i_0/gen_hlayer[8].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[8].hlayer/reluVal_reg[2]' (FDR) to 'i_0/gen_hlayer[8].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[8].hlayer/reluVal_reg[3]' (FDR) to 'i_0/gen_hlayer[8].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[8].hlayer/reluVal_reg[4]' (FDR) to 'i_0/gen_hlayer[8].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[8].hlayer/reluVal_reg[-1]' (FDR) to 'i_0/gen_hlayer[8].hlayer/reluVal_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\gen_hlayer[8].hlayer /\reluVal_reg[1] )
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[9].hlayer/reluVal_reg[-4]' (FDR) to 'i_0/gen_hlayer[9].hlayer/reluVal_reg[-3]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[9].hlayer/reluVal_reg[-3]' (FDR) to 'i_0/gen_hlayer[9].hlayer/reluVal_reg[-2]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[9].hlayer/reluVal_reg[-2]' (FDR) to 'i_0/gen_hlayer[9].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[9].hlayer/reluVal_reg[2]' (FDR) to 'i_0/gen_hlayer[9].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[9].hlayer/reluVal_reg[3]' (FDR) to 'i_0/gen_hlayer[9].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[9].hlayer/reluVal_reg[4]' (FDR) to 'i_0/gen_hlayer[9].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[9].hlayer/reluVal_reg[-1]' (FDR) to 'i_0/gen_hlayer[9].hlayer/reluVal_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\gen_hlayer[9].hlayer /\reluVal_reg[1] )
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[12].hlayer/reluVal_reg[-4]' (FDR) to 'i_0/gen_hlayer[12].hlayer/reluVal_reg[-3]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[12].hlayer/reluVal_reg[-3]' (FDR) to 'i_0/gen_hlayer[12].hlayer/reluVal_reg[-2]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[12].hlayer/reluVal_reg[-2]' (FDR) to 'i_0/gen_hlayer[12].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[12].hlayer/reluVal_reg[2]' (FDR) to 'i_0/gen_hlayer[12].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[12].hlayer/reluVal_reg[3]' (FDR) to 'i_0/gen_hlayer[12].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[12].hlayer/reluVal_reg[4]' (FDR) to 'i_0/gen_hlayer[12].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[12].hlayer/reluVal_reg[-1]' (FDR) to 'i_0/gen_hlayer[12].hlayer/reluVal_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\gen_hlayer[12].hlayer /\reluVal_reg[1] )
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[17].hlayer/reluVal_reg[-4]' (FDR) to 'i_0/gen_hlayer[17].hlayer/reluVal_reg[-3]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[17].hlayer/reluVal_reg[-3]' (FDR) to 'i_0/gen_hlayer[17].hlayer/reluVal_reg[-2]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[17].hlayer/reluVal_reg[-2]' (FDR) to 'i_0/gen_hlayer[17].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[17].hlayer/reluVal_reg[2]' (FDR) to 'i_0/gen_hlayer[17].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[17].hlayer/reluVal_reg[3]' (FDR) to 'i_0/gen_hlayer[17].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[17].hlayer/reluVal_reg[4]' (FDR) to 'i_0/gen_hlayer[17].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[17].hlayer/reluVal_reg[-1]' (FDR) to 'i_0/gen_hlayer[17].hlayer/reluVal_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\gen_hlayer[17].hlayer /\reluVal_reg[1] )
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[18].hlayer/reluVal_reg[-4]' (FDR) to 'i_0/gen_hlayer[18].hlayer/reluVal_reg[-3]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[18].hlayer/reluVal_reg[-3]' (FDR) to 'i_0/gen_hlayer[18].hlayer/reluVal_reg[-2]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[18].hlayer/reluVal_reg[-2]' (FDR) to 'i_0/gen_hlayer[18].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[18].hlayer/reluVal_reg[2]' (FDR) to 'i_0/gen_hlayer[18].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[18].hlayer/reluVal_reg[3]' (FDR) to 'i_0/gen_hlayer[18].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[18].hlayer/reluVal_reg[4]' (FDR) to 'i_0/gen_hlayer[18].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[18].hlayer/reluVal_reg[-1]' (FDR) to 'i_0/gen_hlayer[18].hlayer/reluVal_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\gen_hlayer[18].hlayer /\reluVal_reg[1] )
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[19].hlayer/reluVal_reg[-4]' (FDR) to 'i_0/gen_hlayer[19].hlayer/reluVal_reg[-3]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[19].hlayer/reluVal_reg[-3]' (FDR) to 'i_0/gen_hlayer[19].hlayer/reluVal_reg[-2]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[19].hlayer/reluVal_reg[-2]' (FDR) to 'i_0/gen_hlayer[19].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[19].hlayer/reluVal_reg[2]' (FDR) to 'i_0/gen_hlayer[19].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[19].hlayer/reluVal_reg[3]' (FDR) to 'i_0/gen_hlayer[19].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[19].hlayer/reluVal_reg[4]' (FDR) to 'i_0/gen_hlayer[19].hlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[19].hlayer/reluVal_reg[-1]' (FDR) to 'i_0/gen_hlayer[19].hlayer/reluVal_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\gen_hlayer[19].hlayer /\reluVal_reg[1] )
+INFO: [Synth 8-3886] merging instance 'i_0/gen_mlayer[0].mlayer/reluVal_reg[-4]' (FDR) to 'i_0/gen_mlayer[0].mlayer/reluVal_reg[-3]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_mlayer[0].mlayer/reluVal_reg[-3]' (FDR) to 'i_0/gen_mlayer[0].mlayer/reluVal_reg[-2]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_mlayer[0].mlayer/reluVal_reg[-2]' (FDR) to 'i_0/gen_mlayer[0].mlayer/reluVal_reg[-1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_mlayer[0].mlayer/reluVal_reg[-1]' (FDR) to 'i_0/gen_mlayer[0].mlayer/reluVal_reg[1]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_mlayer[0].mlayer/reluVal_reg[1]' (FDR) to 'i_0/gen_mlayer[0].mlayer/reluVal_reg[2]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_mlayer[0].mlayer/reluVal_reg[3]' (FDR) to 'i_0/gen_mlayer[0].mlayer/reluVal_reg[2]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_mlayer[0].mlayer/reluVal_reg[2]' (FDR) to 'i_0/gen_mlayer[0].mlayer/reluVal_reg[4]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\gen_mlayer[0].mlayer /\reluVal_reg[4] )
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[16].hlayer/reluVal_reg[-4]' (FDR) to 'i_0/gen_hlayer[16].hlayer/reluVal_reg[-3]'
+INFO: [Synth 8-3886] merging instance 'i_0/gen_hlayer[16].hlayer/reluVal_reg[-3]' (FDR) to 'i_0/gen_hlayer[16].hlayer/reluVal_reg[-2]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\gen_hlayer[16].hlayer /\reluVal_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\gen_hlayer[13].hlayer /\reluVal_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\gen_hlayer[6].hlayer /\reluVal_reg[4] )
+WARNING: [Synth 8-3332] Sequential element (reluVal_reg[1]) is unused and will be removed from module HNode__1.
+WARNING: [Synth 8-3332] Sequential element (reluVal_reg[1]) is unused and will be removed from module HNode__2.
+WARNING: [Synth 8-3332] Sequential element (reluVal_reg[1]) is unused and will be removed from module HNode__3.
+WARNING: [Synth 8-3332] Sequential element (reluVal_reg[1]) is unused and will be removed from module HNode__4.
+WARNING: [Synth 8-3332] Sequential element (reluVal_reg[1]) is unused and will be removed from module HNode__5.
+WARNING: [Synth 8-3332] Sequential element (reluVal_reg[1]) is unused and will be removed from module HNode__6.
+WARNING: [Synth 8-3332] Sequential element (reluVal_reg[4]) is unused and will be removed from module HNode__7.
+WARNING: [Synth 8-3332] Sequential element (reluVal_reg[1]) is unused and will be removed from module HNode__8.
+WARNING: [Synth 8-3332] Sequential element (reluVal_reg[1]) is unused and will be removed from module HNode__9.
+WARNING: [Synth 8-3332] Sequential element (reluVal_reg[1]) is unused and will be removed from module HNode__10.
+WARNING: [Synth 8-3332] Sequential element (reluVal_reg[1]) is unused and will be removed from module HNode__11.
+WARNING: [Synth 8-3332] Sequential element (reluVal_reg[4]) is unused and will be removed from module HNode__12.
+WARNING: [Synth 8-3332] Sequential element (reluVal_reg[4]) is unused and will be removed from module HNode__13.
+WARNING: [Synth 8-3332] Sequential element (reluVal_reg[1]) is unused and will be removed from module HNode__14.
+WARNING: [Synth 8-3332] Sequential element (reluVal_reg[1]) is unused and will be removed from module HNode__15.
+WARNING: [Synth 8-3332] Sequential element (reluVal_reg[1]) is unused and will be removed from module HNode__16.
+WARNING: [Synth 8-3332] Sequential element (reluVal_reg[4]) is unused and will be removed from module MNode.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_1/\gen_hlayer[10].hlayer /\reluVal_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_1/\gen_hlayer[14].hlayer /\reluVal_reg[1] )
+WARNING: [Synth 8-3332] Sequential element (reluVal_reg[1]) is unused and will be removed from module HNode__17.
+WARNING: [Synth 8-3332] Sequential element (reluVal_reg[4]) is unused and will be removed from module HNode__18.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/\gen_hlayer[15].hlayer /\reluVal_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/\gen_hlayer[11].hlayer /\reluVal_reg[1] )
+WARNING: [Synth 8-3332] Sequential element (reluVal_reg[1]) is unused and will be removed from module HNode__19.
+WARNING: [Synth 8-3332] Sequential element (reluVal_reg[1]) is unused and will be removed from module HNode.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:32 ; elapsed = 00:02:53 . Memory (MB): peak = 1939.566 ; gain = 769.676 ; free physical = 3104 ; free virtual = 10365
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+--------------+------------+----------+
+|      |RTL Partition |Replication |Instances |
++------+--------------+------------+----------+
+|1     |mlp__GB0      |           1|     66020|
+|2     |mlp__GB1      |           1|     13884|
+|3     |mlp__GB2      |           1|     16064|
++------+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:39 ; elapsed = 00:03:01 . Memory (MB): peak = 1939.566 ; gain = 769.676 ; free physical = 3010 ; free virtual = 10272
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:02:45 ; elapsed = 00:03:08 . Memory (MB): peak = 1939.566 ; gain = 769.676 ; free physical = 2985 ; free virtual = 10247
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+--------------+------------+----------+
+|      |RTL Partition |Replication |Instances |
++------+--------------+------------+----------+
+|1     |mlp__GB0      |           1|     66020|
+|2     |mlp__GB1      |           1|     13884|
+|3     |mlp__GB2      |           1|     16064|
++------+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:03:00 ; elapsed = 00:03:23 . Memory (MB): peak = 1989.754 ; gain = 819.863 ; free physical = 3007 ; free virtual = 10268
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:03:03 ; elapsed = 00:03:26 . Memory (MB): peak = 1989.754 ; gain = 819.863 ; free physical = 3004 ; free virtual = 10265
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:03:03 ; elapsed = 00:03:26 . Memory (MB): peak = 1989.754 ; gain = 819.863 ; free physical = 3004 ; free virtual = 10265
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:05 ; elapsed = 00:03:29 . Memory (MB): peak = 1989.754 ; gain = 819.863 ; free physical = 3005 ; free virtual = 10266
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:03:06 ; elapsed = 00:03:29 . Memory (MB): peak = 1989.754 ; gain = 819.863 ; free physical = 3005 ; free virtual = 10266
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:03:06 ; elapsed = 00:03:29 . Memory (MB): peak = 1989.754 ; gain = 819.863 ; free physical = 3004 ; free virtual = 10265
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:03:06 ; elapsed = 00:03:29 . Memory (MB): peak = 1989.754 ; gain = 819.863 ; free physical = 3004 ; free virtual = 10265
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |  3092|
+|3     |LUT1   |    87|
+|4     |LUT2   |  5608|
+|5     |LUT3   |  1754|
+|6     |LUT4   |  5528|
+|7     |LUT5   |  2790|
+|8     |LUT6   | 11541|
+|9     |MUXF7  |     3|
+|10    |FDRE   |  2400|
+|11    |IBUF   |    85|
+|12    |OBUF   |     9|
++------+-------+------+
+
+Report Instance Areas: 
++------+--------------------------+---------+------+
+|      |Instance                  |Module   |Cells |
++------+--------------------------+---------+------+
+|1     |top                       |         | 32898|
+|2     |  \gen_hlayer[0].hlayer   |HNode    |    55|
+|3     |  \gen_hlayer[10].hlayer  |HNode_0  |    50|
+|4     |  \gen_hlayer[11].hlayer  |HNode_1  |   110|
+|5     |  \gen_hlayer[12].hlayer  |HNode_2  |    76|
+|6     |  \gen_hlayer[13].hlayer  |HNode_3  |    50|
+|7     |  \gen_hlayer[14].hlayer  |HNode_4  |    65|
+|8     |  \gen_hlayer[15].hlayer  |HNode_5  |   108|
+|9     |  \gen_hlayer[16].hlayer  |HNode_6  |    57|
+|10    |  \gen_hlayer[17].hlayer  |HNode_7  |    72|
+|11    |  \gen_hlayer[18].hlayer  |HNode_8  |    72|
+|12    |  \gen_hlayer[19].hlayer  |HNode_9  |    71|
+|13    |  \gen_hlayer[1].hlayer   |HNode_10 |    76|
+|14    |  \gen_hlayer[2].hlayer   |HNode_11 |    71|
+|15    |  \gen_hlayer[3].hlayer   |HNode_12 |    71|
+|16    |  \gen_hlayer[4].hlayer   |HNode_13 |    71|
+|17    |  \gen_hlayer[5].hlayer   |HNode_14 |    75|
+|18    |  \gen_hlayer[6].hlayer   |HNode_15 |    56|
+|19    |  \gen_hlayer[7].hlayer   |HNode_16 |    73|
+|20    |  \gen_hlayer[8].hlayer   |HNode_17 |    71|
+|21    |  \gen_hlayer[9].hlayer   |HNode_18 |    73|
+|22    |  \gen_mlayer[0].mlayer   |MNode    |    16|
+|23    |  \gen_nlayer[0].nlayer   |NNode    |  2078|
+|24    |  \gen_nlayer[1].nlayer   |NNode_19 |  2051|
+|25    |  \gen_nlayer[2].nlayer   |NNode_20 |  2051|
+|26    |  \gen_nlayer[3].nlayer   |NNode_21 |  2050|
+|27    |  \gen_nlayer[4].nlayer   |NNode_22 |  2051|
+|28    |  \gen_nlayer[5].nlayer   |NNode_23 |  2051|
+|29    |  \gen_nlayer[6].nlayer   |NNode_24 |  2089|
+|30    |  \gen_nlayer[7].nlayer   |NNode_25 |  2050|
+|31    |  \gen_nlayer[8].nlayer   |NNode_26 |  2050|
++------+--------------------------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:03:06 ; elapsed = 00:03:29 . Memory (MB): peak = 1989.754 ; gain = 819.863 ; free physical = 3004 ; free virtual = 10265
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 221 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:57 ; elapsed = 00:03:12 . Memory (MB): peak = 1989.754 ; gain = 473.098 ; free physical = 3052 ; free virtual = 10313
+Synthesis Optimization Complete : Time (s): cpu = 00:03:06 ; elapsed = 00:03:29 . Memory (MB): peak = 1989.762 ; gain = 819.863 ; free physical = 3052 ; free virtual = 10313
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 3180 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+252 Infos, 126 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:03:12 ; elapsed = 00:03:34 . Memory (MB): peak = 2021.770 ; gain = 863.570 ; free physical = 3072 ; free virtual = 10334
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint '/home/alden/Documents/digIC/project/project.runs/synth_1/mlp.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2045.781 ; gain = 24.012 ; free physical = 3064 ; free virtual = 10330
+INFO: [runtcl-4] Executing : report_utilization -file mlp_utilization_synth.rpt -pb mlp_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.17 . Memory (MB): peak = 2045.781 ; gain = 0.000 ; free physical = 3064 ; free virtual = 10330
+INFO: [Common 17-206] Exiting Vivado at Wed Dec 19 14:50:31 2018...
+
